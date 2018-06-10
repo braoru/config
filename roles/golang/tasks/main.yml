@@ -1,0 +1,11 @@
+- name: Install golang repos
+  dnf:
+    name:
+      - golang
+  become: yes
+
+- name: Install GOPATH variable
+  lineinfile:
+    path: ~/.zshrc
+    line: "export GOPATH=~/go"
+    state: present

@@ -1,0 +1,6 @@
+- name: Alt tab only current workspace
+  command: gsettings set org.gnome.shell.app-switcher current-workspace-only true
+
+- name: Deactivate caps lock key
+  command: dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:none']"
+

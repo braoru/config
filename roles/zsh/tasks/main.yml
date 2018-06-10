@@ -1,0 +1,27 @@
+- name: Copy .inputrc
+  copy:
+    src: .inputrc
+    dest: ~/.inputrc
+
+
+- name: Install zsh
+  dnf:
+    name:
+      - zsh
+      - powerline-fonts
+  become: yes
+
+- name: Get Oh-My-Zsh
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: ~/.oh-my-zsh
+
+- name: Deploy zshrc
+  copy:
+    src: .zshrc
+    dest: ~/.zshrc
+
+- name: Get ZPlug
+  git:
+    repo: https://github.com/zplug/zplug
+    dest: ~/.zplug

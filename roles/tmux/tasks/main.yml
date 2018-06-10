@@ -1,0 +1,11 @@
+- name: Install xsel, tmux
+  dnf:
+    name:
+      - xsel
+      - tmux
+  become: yes
+
+- name: Copy tmux config
+  copy:
+    src: .tmux.conf
+    dest: ~/.tmux.conf

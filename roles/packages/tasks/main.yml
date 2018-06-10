@@ -1,0 +1,8 @@
+- name: Install multiple packages
+  dnf:
+    name:
+      - git
+      - docker
+      - kubernetes-client
+      - libselinux-python
+  become: yes

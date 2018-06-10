@@ -1,0 +1,23 @@
+- hosts: localhost
+  roles:
+    - packages
+  become: no
+  tags: packages
+
+- hosts: localhost
+  roles:
+    - gnome
+  become: no
+  tags: gnome
+
+- hosts: localhost
+  roles:
+    - code
+  tags: code
+
+- hosts: localhost
+  roles:
+    - golang
+  tags: golang
+
+
