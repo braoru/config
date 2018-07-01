@@ -20,6 +20,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vimlab/split-term.vim'
 Plug 'sebdah/vim-delve'
 Plug 'myusuf3/numbers.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'melonmanchan/vim-tmux-resizer'
 call plug#end()
 
 filetype plugin indent on
@@ -33,12 +35,20 @@ filetype plugin on
 
 :set ww+=<,> 
 
-
+let g:tmux_navigator_no_mappings = 1
 "Switch between windows
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
+nnoremap <silent> <A-Up> :TmuxNavigateUp<CR>
+nnoremap <silent> <A-Down> :TmuxNavigateDown<CR>
+nnoremap <silent> <A-Left> :TmuxNavigateLeft<CR>
+nnoremap <silent> <A-Right> :TmuxNavigateRight<CR>
+
+let g:tmux_resizer_no_mappings = 1
+
+nnoremap <silent> <S-Left> :TmuxResizeLeft<cr>
+nnoremap <silent> <S-Down> :TmuxResizeDown<cr>
+nnoremap <silent> <S-Up> :TmuxResizeUp<cr>
+nnoremap <silent> <S-Right> :TmuxResizeRight<cr>
+
 
 "Switch between tabs
 nnoremap <C-S-Left> :wincmd H<CR>
