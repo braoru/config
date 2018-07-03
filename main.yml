@@ -20,4 +20,14 @@
     - golang
   tags: golang
 
+- hosts: localhost
+  roles:
+    - neovim
+  tags: neovim, vim
+
+- hosts: localhost
+  roles:
+    - tmux
+  tags: tmux
+
 
