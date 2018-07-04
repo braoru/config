@@ -1,0 +1,11 @@
+- name: Deploy telepresence.repo
+  become: yes
+  copy:
+    src: telepresence.repo
+    dest: /etc/yum.repos.d/telepresence.repo
+
+- name: Install telepresence
+  become: yes
+  dnf:
+    name: telepresence
+    state: latest

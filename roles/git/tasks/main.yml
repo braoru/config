@@ -1,0 +1,31 @@
+- name: Deploy .gitconfig
+  template:
+    src: .gitconfig.j2
+    dest: ~/.gitconfig
+
+- name: Read github key
+  shell: ssh-keyscan github.com
+  register: git_keyscan
+  
+- name: Add github to known hosts
+  lineinfile:
+    path: ~/.ssh/known_hosts
+    state: present
+    create: yes
+    line: "{{ git_keyscan.stdout }}"
+
+- name: Add github host in .ssh/config
+  lineinfile:
+    path: ~/.ssh/config
+    state: present
+    create: yes
+    mode: 0600
+    line: Host github.com
+
+- name: Add identity file in .ssh/config
+  lineinfile:
+    path: ~/.ssh/config
+    state: present
+    create: yes
+    insertafter: '^Host github.com'
+    line: "  IdentityFile ~/.ssh/{{ git_ssh_key_name }}"

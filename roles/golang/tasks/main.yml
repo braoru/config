@@ -1,11 +1,29 @@
-- name: Install golang repos
-  dnf:
-    name:
-      - golang
+- name: Install golang
   become: yes
+  dnf:
+    name: golang
+    state: latest
 
-- name: Install GOPATH variable
+- name: Create go workspace
+  file:
+    path: "{{ go_path }}/{{ item }}"
+    state: directory
+  with_items:
+    - bin
+    - pkg
+    - src
+
+- name: Set GOPATH, PATH, and CDPATH variable
   lineinfile:
     path: ~/.zshrc
-    line: "export GOPATH=~/go"
     state: present
+    line: "{{ item }}"
+  with_items:
+    - "export GOPATH={{ go_path }}"
+    - "export CDPATH=$GOPATH/src"
+    - 'export PATH="$PATH:${GOPATH//://bin:}/bin"'
+
+- name: Get common repositories
+  command: "go get -u {{ item }}"
+  when: go_repos is defined
+  loop: "{{ go_repos }}"

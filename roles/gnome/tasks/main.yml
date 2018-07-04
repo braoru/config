@@ -4,3 +4,13 @@
 - name: Deactivate caps lock key
   command: dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:none']"
 
+- name: Add gnome shortcuts
+  become: yes
+  shell: |
+      gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom{{ idx }}/ name '{{ item.name }}'
+      gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom{{ idx }}/ command '{{ item.command }}'
+      gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom{{ idx }}/ binding '{{ item.binding }}' 
+  when: gnome_shortcuts is defined
+  loop: "{{ gnome_shortcuts }}"
+  loop_control:
+    index_var: idx

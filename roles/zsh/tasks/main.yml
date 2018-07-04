@@ -1,27 +1,32 @@
-- name: Copy .inputrc
+- name: Deploy .inputrc
   copy:
     src: .inputrc
     dest: ~/.inputrc
 
-
-- name: Install zsh
+- name: Install zsh, powerline-fonts
+  become: yes
   dnf:
     name:
       - zsh
       - powerline-fonts
-  become: yes
+      - util-linux-user
+    state: latest
 
-- name: Get Oh-My-Zsh
+- name: Get oh-my-zsh
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     dest: ~/.oh-my-zsh
 
-- name: Deploy zshrc
+- name: Deploy .zshrc
   copy:
     src: .zshrc
     dest: ~/.zshrc
 
-- name: Get ZPlug
+- name: Get zplug
   git:
     repo: https://github.com/zplug/zplug
     dest: ~/.zplug
+
+- name: Change shell
+  become: yes
+  command: "chsh -s /usr/bin/zsh {{ ansible_user_id }}"

@@ -1,0 +1,13 @@
+- name: Disable and stop avahi-daemon.service
+  become: yes
+  systemd:
+    name: avahi-daemon.service 
+    state: stopped
+    enabled: no
+
+- name: Disable and stop avahi-daemon.socket
+  become: yes
+  systemd:
+    name: avahi-daemon.socket
+    state: stopped
+    enabled: no

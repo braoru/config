@@ -1,0 +1,33 @@
+- name: Install docker
+  become: yes
+  dnf:
+    name: docker
+    state: latest
+
+- name: Set the container SELinux boolean
+  become: yes
+  seboolean:
+    name: container_manage_cgroup
+    persistent: yes
+    state: yes
+
+- name: Enable and start docker
+  become: yes
+  systemd:
+    name: docker
+    enabled: yes
+    state: restarted
+    daemon_reload: yes
+
+- name: Make sure we have a 'docker' group
+  become: yes
+  group:
+    name: docker
+    state: present
+
+- name: Add user to 'docker' group
+  become: yes
+  user:
+    name: "{{ ansible_user_id }}"
+    groups: docker
+    append: yes

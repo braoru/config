@@ -1,13 +1,27 @@
 - name: Import keys
+  become: yes
   command: rpm --import https://packages.microsoft.com/keys/microsoft.asc
-  become: yes
 
-- name: Write repo
-  shell: sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+- name: Deploy vscode.repo
   become: yes
+  copy:
+    src: vscode.repo
+    dest: /etc/yum.repos.d/vscode.repo
 
-- name: Install code
+- name: Install vscode
+  become: yes
   dnf:
-    name:
-      - code
-  become: yes
+    name: code
+    state: latest
+
+- name: Make sure user settings folder exists
+  file:
+    path: ~/.config/Code/User/
+    state: directory
+    recurse: yes
+    mode: 0755
+
+- name: Deploy default user settings
+  template:
+    src: settings.json.j2
+    dest: ~/.config/Code/User/settings.json

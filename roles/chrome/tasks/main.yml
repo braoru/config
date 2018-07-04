@@ -1,0 +1,12 @@
+- name: Install fedora workstation repositories
+  become: yes
+  dnf:
+    name: fedora-workstation-repositories
+    state: latest
+
+- name: Install google chrome
+  become: yes
+  dnf:
+    name: google-chrome-stable
+    enablerepo: google-chrome
+    state: latest

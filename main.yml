@@ -1,23 +1,14 @@
 - hosts: localhost
   roles:
+    - avahi
     - packages
-  become: no
-  tags: packages
-
-- hosts: localhost
-  roles:
+    - git
+    - zsh
+    - tmux
+    - neovim
+    - chrome
     - gnome
-  become: no
-  tags: gnome
-
-- hosts: localhost
-  roles:
     - code
-  tags: code
-
-- hosts: localhost
-  roles:
     - golang
-  tags: golang
-
-
+    - docker
+    - telepresence

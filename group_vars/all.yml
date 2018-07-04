@@ -1,0 +1,46 @@
+---
+
+# git user information
+git_user: 
+git_email: 
+git_ssh_key_name: git_rsa
+
+# packages
+packages:
+  - flatbuffers
+  - git
+  - keepassx
+  - kubernetes-client
+  - libselinux-python
+  - libsemanage-python
+  - "http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm"
+  - "http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm"
+
+# golang
+go_path: ~/go
+go_repos:
+  - github.com/golang/dep/cmd/dep
+  - github.com/golang/mock/gomock
+  - github.com/golang/mock/mockgen
+  - github.com/golang/protobuf/protoc-gen-go
+  - github.com/pkg/errors
+  - github.com/google/flatbuffers/go
+  - google.golang.org/grpc
+  - github.com/derekparker/delve/cmd/dlv
+  - github.com/stretchr/testify
+  - github.com/spf13/viper
+  - github.com/spf13/cobra/cobra
+  - github.com/AsynkronIT/protoactor-go
+  - github.com/hashicorp/serf/cmd/serf
+  - github.com/hashicorp/vault
+  - github.com/cloudtrust/common-healthcheck
+  - github.com/cloudtrust/flaki
+  - github.com/cloudtrust/flaki-service
+  - github.com/cloudtrust/fpe/fpe
+  - github.com/cloudtrust/go-jobs
+  - github.com/cloudtrust/keycloak-bridge
+  - github.com/cloudtrust/keycloak-client
+
+# gnome shortcuts
+gnome_shortcuts:
+  - {name: terminal, command: gnome-terminal, binding: F4}

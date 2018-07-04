@@ -1,8 +1,7 @@
 - name: Install multiple packages
-  dnf:
-    name:
-      - git
-      - docker
-      - kubernetes-client
-      - libselinux-python
   become: yes
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  when: packages is defined
+  loop: "{{ packages }}"
