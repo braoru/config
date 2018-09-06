@@ -15,11 +15,11 @@
     dest: ~/.local/share/nvim/site/autoload/plug.vim
 
 - name: Install required packages
-  become: yes
   dnf:
-    name:
+    name: 
       - neovim
       - python3-neovim
+  become: yes
 
 - name: Create nvim directory
   file:

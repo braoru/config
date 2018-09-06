@@ -14,7 +14,7 @@ It setups:
 * packages (install packages listed in `group_vars/all.yml` under key `packages`)
 * telepresence
 * tmux
-* zsh
+* bash
 
 For more detailed information, look at the playbooks.
 

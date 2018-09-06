@@ -15,7 +15,7 @@
 
 - name: Set GOPATH, PATH, and CDPATH variable
   lineinfile:
-    path: ~/.zshrc
+    path: ~/.bashrc
     state: present
     line: "{{ item }}"
   with_items:

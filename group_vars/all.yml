@@ -33,13 +33,6 @@ go_repos:
   - github.com/AsynkronIT/protoactor-go
   - github.com/hashicorp/serf/cmd/serf
   - github.com/hashicorp/vault
-  - github.com/cloudtrust/common-healthcheck
-  - github.com/cloudtrust/flaki
-  - github.com/cloudtrust/flaki-service
-  - github.com/cloudtrust/fpe/fpe
-  - github.com/cloudtrust/go-jobs
-  - github.com/cloudtrust/keycloak-bridge
-  - github.com/cloudtrust/keycloak-client
 
 # gnome shortcuts
 gnome_shortcuts:

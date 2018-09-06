@@ -3,7 +3,7 @@
     - avahi
     - packages
     - git
-    - zsh
+    - bash
     - tmux
     - neovim
     - chrome
