@@ -36,3 +36,8 @@ Run the playboks like this:
     cd config
     ansible-playbook -i inventory/local.ini main.yml
 ```
+
+## neovim
+
+The first time neovim starts, there is an error because the neovim plugins are missing.
+You must install them by typing 'PlugInstall' in neovim.
