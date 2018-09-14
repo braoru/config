@@ -9,6 +9,7 @@ git_ssh_key_name: git_rsa
 packages:
   - flatbuffers
   - git
+  - xclip
   - keepassx
   - kubernetes-client
   - libselinux-python
