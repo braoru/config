@@ -1,0 +1,20 @@
+{
+    // Use vscode JSON editor to edit settings.
+    "workbench.settings.editor": "json",
+
+    // Some chars, i.e. '_', are not displayed with the default font size.
+    "terminal.integrated.fontSize": 15,
+
+    // VSCode is unable to watch for file changes in large workspaces, so exclude specific
+    // directories from the VSCode file watcher.
+    "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/vendor/**": true
+    },
+
+    // Add verbose flag when running go tests.
+    "go.testFlags": [
+        "-v",
+    ],
+}
