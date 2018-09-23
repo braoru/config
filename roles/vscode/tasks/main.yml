@@ -25,3 +25,8 @@
   template:
     src: settings.json.j2
     dest: ~/.config/Code/User/settings.json
+
+- name: Deploy key bindings
+  copy:
+    src: keybindings.json
+    dest: ~/.config/Code/User/keybindings.json
