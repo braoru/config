@@ -7,7 +7,3 @@
   copy:
     src: .bashrc
     dest: ~/.bashrc
-
-- name: Change shell
-  become: yes
-  command: "chsh -s /usr/bin/bash {{ ansible_user_id }}"

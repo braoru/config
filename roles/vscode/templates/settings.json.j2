@@ -17,4 +17,14 @@
     "go.testFlags": [
         "-v",
     ],
+
+    "go.delveConfig": {
+        "dlvLoadConfig": {
+            "followPointers": true,
+            "maxVariableRecurse": 2,
+            "maxStringLen": 64,
+            "maxArrayValues": 64,
+            "maxStructFields": -1
+        }
+    }
 }
