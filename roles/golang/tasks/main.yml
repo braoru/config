@@ -1,3 +1,13 @@
+- name: Import keys
+  become: yes
+  command: rpm --import https://mirror.go-repo.io/fedora/RPM-GPG-KEY-GO-REPO
+
+- name: Deploy go-repo.repo
+  become: yes
+  copy:
+    src: go-repo.repo
+    dest: /etc/yum.repos.d/go-repo.repo
+
 - name: Install golang
   become: yes
   dnf:
@@ -22,6 +32,7 @@
     - "export GOPATH={{ go_path }}"
     - "export CDPATH=$GOPATH/src"
     - 'export PATH="$PATH:${GOPATH//://bin:}/bin"'
+    - "export GO111MODULE=on"
 
 - name: Get common repositories
   command: "go get -u {{ item }}"

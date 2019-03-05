@@ -18,6 +18,8 @@
         "-v",
     ],
 
+    "go.buildOnSave": "off",
+
     "go.delveConfig": {
         "dlvLoadConfig": {
             "followPointers": true,
@@ -26,5 +28,12 @@
             "maxArrayValues": 64,
             "maxStructFields": -1
         }
-    }
+    },
+
+    "vs-kubernetes": {
+        "vs-kubernetes.helm-path": "/home/jdr/.vs-kubernetes/tools/helm/linux-amd64/helm",
+        "vs-kubernetes.draft-path": "/home/jdr/.vs-kubernetes/tools/draft/linux-amd64/draft",
+        "vs-kubernetes.minikube-path": "/home/jdr/.vs-kubernetes/tools/minikube/linux-amd64/minikube"
+    },
+    "breadcrumbs.enabled": true
 }

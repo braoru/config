@@ -1,0 +1,6 @@
+[go-repo]
+name=go-repo - Fedora
+baseurl=https://mirror.go-repo.io/fedora/$releasever/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=https://mirror.go-repo.io/fedora/RPM-GPG-KEY-GO-REPO
