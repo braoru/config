@@ -22,18 +22,9 @@ go_path: ~/go
 go_repos:
   - github.com/golang/mock/gomock
   - github.com/golang/mock/mockgen
-  - github.com/golang/protobuf/protoc-gen-go
-  - github.com/pkg/errors
-  - github.com/google/flatbuffers/go
-  - google.golang.org/grpc
   - github.com/derekparker/delve/cmd/dlv
-  - github.com/spf13/viper
   - github.com/spf13/cobra/cobra
-  - github.com/hashicorp/serf/cmd/serf
-  - github.com/hashicorp/vault
-  - github.com/cjbassi/gotop
-
-
+ 
 # gnome shortcuts
 gnome_shortcuts:
   - {name: terminal, command: gnome-terminal, binding: F4}

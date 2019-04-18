@@ -1,7 +1,13 @@
+- name: Deploy docker-ce.repo
+  become: yes
+  copy:
+    src: docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+
 - name: Install docker
   become: yes
   dnf:
-    name: docker
+    name: ['docker-ce', 'docker-ce-cli', 'containerd.io']
     state: latest
 
 - name: Set the container SELinux boolean
