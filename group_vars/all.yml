@@ -10,7 +10,7 @@ packages:
   - flatbuffers
   - git
   - xclip
-  - keepassx
+  - keepassxc
   - kubernetes-client
   - libselinux-python
   - libsemanage-python
